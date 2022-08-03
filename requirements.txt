@@ -1,0 +1,4 @@
+smsapi-client
+requests~=2.25.1
+blink1~=0.3.1
+urllib3~=1.26.5
