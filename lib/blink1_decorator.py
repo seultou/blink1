@@ -12,6 +12,9 @@ class B1:
         (750, 'white', 1),
         (750, 'black', 2),
     ]
+    __named_patterns: dict = {
+        'nightfall': '1,#001980,1,0,#000000,10,0',
+    }
 
     def __init__(self, dongle: Blink1):
         self.__dongle = dongle
@@ -29,6 +32,12 @@ class B1:
         method = '_' + name
         if callable(getattr(self, method)):
             getattr(self, method)()
+
+    def play_named(self, name: str) -> None:
+        try:
+            self.__dongle.play_pattern(self.__named_patterns[name])
+        except ValueError:
+            print(f'Named pattern {name} does not exist!')
 
     def _alert(self) -> None:
         for sequence in self.__alert_list:
