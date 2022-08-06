@@ -30,7 +30,7 @@ Script using blink(1) dongle and will run pomodoro sessions
 
     Durations set from terminal are to be set in [minutes] for your convenience 
 
-Arguments are optional, they are hard set within by default within `pomodoro.py`.
+Arguments are optional, they are hard set by default within `pomodoro.py`.
 Hereunder are the constants to be modified if needed: 
     
     FOCUS_DURATION_IN_SECONDS = 1500  # 25 minutes
