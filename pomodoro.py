@@ -10,7 +10,7 @@ from lib.color import Color
 FOCUS_DURATION_IN_SECONDS = 1500  # 25 minutes
 SMALL_BREAK_DURATION_IN_SECONDS = 300  # 5 minutes
 BIGGER_BREAK_DURATION_IN_SECONDS = 1200  # 5 minutes
-MAX_POMO_BEFORE_BIG_BREAK = 3  # number of pomo to run before we have a (20 minutes) break
+NUMBER_OF_SESSIONS_BEFORE_BIGGER_BREAK = 3  # number of sessions to run before next break is the bigger one
 dongle = B1(Blink1())
 
 
@@ -87,7 +87,7 @@ def bigger_break():
 def check() -> None:
     if LiveInfo.now_type == 'FOCUS':
         if timer() >= LiveInfo.last_any_break_datetime + setup.get_focus_duration():
-            if LiveInfo.done > 0 and int(LiveInfo.done) % int(MAX_POMO_BEFORE_BIG_BREAK) == 0:
+            if LiveInfo.done > 0 and int(LiveInfo.done) % int(NUMBER_OF_SESSIONS_BEFORE_BIGGER_BREAK) == 0:
                 bigger_break()
                 return
             small_break()
@@ -118,7 +118,7 @@ parser.add_argument('--bigger_break_duration',
                     default=BIGGER_BREAK_DURATION_IN_SECONDS,
                     help='Bigger breaks duration in minutes (the one that happens every N pomo sessions)', )
 parser.add_argument('--max_pomo_before_big_break',
-                    default=MAX_POMO_BEFORE_BIG_BREAK,
+                    default=NUMBER_OF_SESSIONS_BEFORE_BIGGER_BREAK,
                     help='How many pomo sessions before next is the bigger break?'
                          ' (the one that happens every N pomo sessions)')
 
