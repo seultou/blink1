@@ -31,13 +31,12 @@ Script using blink(1) dongle and will run pomodoro sessions
     Durations set from terminal are to be set in [minutes] for your convenience 
 
 Arguments are optional, they are hard set by default within `pomodoro.py`.
-Hereunder are the constants to be modified if needed: 
+Hereunder are the `constants` to be modified if needed (at the top of file, right after imports): 
     
     FOCUS_DURATION_IN_SECONDS = 1500  # 25 minutes
     SMALL_BREAK_DURATION_IN_SECONDS = 300  # 5 minutes
     BIGGER_BREAK_DURATION_IN_SECONDS = 1200  # 5 minutes
-    MAX_POMO_BEFORE_BIG_BREAK = 3  # number of pomo to run before we have a (20 minutes) break
-
+    NUMBER_OF_SESSIONS_BEFORE_BIGGER_BREAK = 3  # number of sessions to run before next break is the bigger one
 
 Bigger break calls a pattern called `nightfall` via `dongle.play_named('nightfall')` but you can call `dongle.off()` if you prefer...
 
