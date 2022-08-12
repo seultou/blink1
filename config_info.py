@@ -6,6 +6,7 @@ class Config:
         'available', 'ok',
         'busy',
         'alert', 'alert_mail',
+        'off',
         # ETC...
     ]
 
